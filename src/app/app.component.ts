@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';   
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,40 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   data: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+      for (let lang in this.Fury) {
+      this.furyUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Fury[lang]);
+	  this.glimpseUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Glimpse[lang]);
+	  this.fearSongUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.FearSong[lang]);
+    }
+  }
     ngOnInit(): void {
     this.getData();
+  }
+      furyUrls1: { [key: string]: SafeResourceUrl } = {};
+  glimpseUrls1: { [key: string]: SafeResourceUrl } = {};
+  fearSongUrls1: { [key: string]: SafeResourceUrl } = {};
+  langs: any[] = ["Telugu","Hindi","Tamil","Kannada","Malayalam"]
+    Fury : { [key: string]: string } = {
+	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/cW2RWZCUot4",
+	"Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/S6Ll0_dqfkY",
+	"Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/sP6qnPmgZHI",
+	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/Y5rM7xkXQH0",
+	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/oHLWDI4LEbQ"
+  } 
+  Glimpse : { [key: string]: string } = {
+	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/rc61YHl1PFY",
+	"Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/qB7kO-Z-zjU",
+	"Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/J1g-8hBwj3I",
+	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/0aCqlN9IbC4",
+	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/WTcSeqf555c"
+  } 
+   FearSong : { [key: string]: string } = {
+	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/CKpbdCciELk",
+	"Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/WAM3E91iKWM",
+	"Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/D6MOuX980gc",
+	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/XUO4fCXG7tE",
+	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/hB9pvZC1KHk"
   }
   getData(): void {
   const targetUrl = 'https://devara.pythonanywhere.com/';
