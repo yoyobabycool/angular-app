@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
   getData(): void {
   const targetUrl = 'https://devara.pythonanywhere.com/';
-  const url = proxyUrl + targetUrl;
+  const url = targetUrl;
     this.http.get(url)
       .subscribe(response => {
         this.data = response;
