@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     this.getData();
   }
   getData(): void {
-    this.http.get('http://devara.pythonanywhere.com/')
+    this.http.get('https://devara.pythonanywhere.com/')
       .subscribe(response => {
         this.data = response;
         console.log(this.data);
