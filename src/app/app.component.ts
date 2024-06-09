@@ -1,11 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  data: any;
+
+  constructor(private http: HttpClient) { }
+    ngOnInit(): void {
+    this.getData();
+  }
+  getData(): void {
+    this.http.get('http://devara.pythonanywhere.com/')
+      .subscribe(response => {
+        this.data = response;
+        console.log(this.data);
+      }, error => {
+        console.error('Error fetching data', error);
+      });
+  }
     poppedPopcorns: any[] = [];
   addPopcorn(event: MouseEvent) {
       const popcorn = {
