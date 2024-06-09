@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
     this.getData();
   }
   getData(): void {
-     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   const targetUrl = 'https://devara.pythonanywhere.com/';
   const url = proxyUrl + targetUrl;
     this.http.get(url)
