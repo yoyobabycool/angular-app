@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
   data: any;
-
+  token:any;
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
       for (let lang in this.Fury) {
       this.furyUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Fury[lang]);
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   }
     ngOnInit(): void {
     this.getData();
-      this.getDataspot()
   }
       furyUrls1: { [key: string]: SafeResourceUrl } = {};
   glimpseUrls1: { [key: string]: SafeResourceUrl } = {};
@@ -47,19 +46,20 @@ export class AppComponent implements OnInit {
 	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/hB9pvZC1KHk"
   }
   getData(): void {
-  const targetUrl = 'https://devara.pythonanywhere.com/';
+  const targetUrl = 'https://devara.pythonanywhere.com/getToken';
   const url = targetUrl;
     this.http.get(url)
       .subscribe(response => {
-        this.data = response;
-        console.log(this.data);
+        this.token = response;
+        console.log(this.token.accessToken);
+        this.getDataspot() 
       }, error => {
         console.error('Error fetching data', error);
       });
   }
   getDataspot(): void {
   const targetUrl = 'https://api-partner.spotify.com/pathfinder/v1/query?operationName=getTrack&variables=%7B%22uri%22%3A%22spotify%3Atrack%3A6b2WJDzGt5X8dYfpkWtvXW%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22ae85b52abb74d20a4c331d4143d4772c95f34757bfa8c625474b912b9055b5c0%22%7D%7D';
-  const headers = {"Authorization" : "Bearer BQC95ujrWWHBNjR5p5PZvsXg7ofP0iiV69n_HIZyWfKAqAg3IQ5wbU2cekTWsrZzmpqWP0BjxT37jx7ou5TG2tvvelcxsWmdf3eU-XeazOReVY1pI9w"}
+  const headers = {"Authorization" : "'Bearer'+this.token.accessToken"}
   const url = targetUrl;
     this.http.get(url, {headers})
       .subscribe(response => {
