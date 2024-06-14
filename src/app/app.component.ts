@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     }
   }
     ngOnInit(): void {
-    this.getData();
+    this.getDataspot();
   }
       furyUrls1: { [key: string]: SafeResourceUrl } = {};
   glimpseUrls1: { [key: string]: SafeResourceUrl } = {};
