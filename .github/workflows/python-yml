@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: '*/60 * * * *'
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,4 +20,4 @@ jobs:
         git config --global user.name "Github Actions"
         git add spotify.txt
         git commit -m "Update spotify "
-        git push origin main
+        git push origin master
