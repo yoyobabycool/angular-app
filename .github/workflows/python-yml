@@ -1,0 +1,23 @@
+name: Run bot
+on:
+  schedule:
+    - cron: '*/60 * * * *'
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo content
+      uses: actions/checkout@v2 # 
+    - name: Install dependencies
+      run: |
+        pip install tweepy
+    - name: run the bot
+      run: |
+        python main.py
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "Github Actions"
+        git add spotify.txt
+        git commit -m "Update spotify "
+        git push origin main
