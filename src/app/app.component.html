@@ -11,9 +11,14 @@
 	</table>
 </div>
 <div *ngIf="data">
-  <pre>{{ data | json }}</pre>
+	<div class="spotify" *ngFor="let track of data.tracks">
+	<img height="150px" width="150px" [src] ="track.image">
+	<div class="tab">
+	<!--	<div style="font-size:25px;padding-left:10px">{{track.name}}</div> -->
+		<div class="count">{{track.playcount}}</div>
+	</div>
+	</div>
 </div>
-
 <!-- <iframe height="80px" width="300px" frameborder="0" src="https://open.spotify.com/embed/track/6b2WJDzGt5X8dYfpkWtvXW?utm_source=generator"></iframe>
 
 <iframe height="80px" width="300px" frameborder="0" src="https://www.youtube.com/embed/rc61YHl1PFY"></iframe>
