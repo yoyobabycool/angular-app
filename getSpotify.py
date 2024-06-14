@@ -14,7 +14,7 @@ for item in data["data"]["playlistV2"]["content"]["items"]:
     tracks.append({
         "name": track_data["name"],
         "playcount": track_data["playcount"],
-        "image": img["url"}
+        "image": img["url"]
     })
 
 result = {
