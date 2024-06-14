@@ -45,49 +45,34 @@ export class AppComponent implements OnInit {
 	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/XUO4fCXG7tE",
 	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/hB9pvZC1KHk"
   }
-  getData(): void {
-  const targetUrl = 'https://devara.pythonanywhere.com/getToken';
-  const url = targetUrl;
-    this.http.get(url)
-      .subscribe(response => {
-        this.token = response;
-        console.log(this.token.accessToken);
-        this.getDataspot() 
-      }, error => {
-        console.error('Error fetching data', error);
-      });
-  }
   getDataspot(): void {
-  const targetUrl = 'https://api-partner.spotify.com/pathfinder/v1/query?operationName=getTrack&variables=%7B%22uri%22%3A%22spotify%3Atrack%3A6b2WJDzGt5X8dYfpkWtvXW%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22ae85b52abb74d20a4c331d4143d4772c95f34757bfa8c625474b912b9055b5c0%22%7D%7D';
-  const tok = 'Bearer ' + this.token.accessToken
-  const headers = {"Authorization" : tok}
-  const url = targetUrl;
-    this.http.get(url, {headers})
-      .subscribe(response => {
+    this.http.get('assets/result.json').subscribe(
+      (response) => {
         this.data = response;
-        console.log(this.data);
-      }, error => {
-        console.error('Error fetching data', error);
-      });
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+
   }
-    poppedPopcorns: any[] = [];
-  addPopcorn(event: MouseEvent) {
-      const popcorn = {
-      x: event.clientX - 25,
-      y: event.clientY - 25,
-      falling: false
-    };
-    this.poppedPopcorns.push(popcorn);
-  this.playPopcornSound()
-    setTimeout(() => {
-      popcorn.falling = true;
-      setTimeout(() => {
-        this.poppedPopcorns = this.poppedPopcorns.filter(p => p !== popcorn);
-      }, 2000);
-    }, 100);
-  }
-    playPopcornSound() {
-    const audio = new Audio("assets/popcorn_sound.mp3");
-    audio.play();
-  }
+  //   poppedPopcorns: any[] = [];
+  // addPopcorn(event: MouseEvent) {
+  //     const popcorn = {
+  //     x: event.clientX - 25,
+  //     y: event.clientY - 25,
+  //     falling: false
+  //   };
+  //   this.poppedPopcorns.push(popcorn);
+  // this.playPopcornSound()
+  //   setTimeout(() => {
+  //     popcorn.falling = true;
+  //     setTimeout(() => {
+  //       this.poppedPopcorns = this.poppedPopcorns.filter(p => p !== popcorn);
+  //     }, 2000);
+  //   }, 100);
+  // }
+  //   playPopcornSound() {
+  //   const audio = new Audio("assets/popcorn_sound.mp3");
+  //   audio.play();
+  // }
 }
