@@ -11,10 +11,12 @@ data = response2.json()
 tracks = []
 
 for item in data["data"]["playlistV2"]["content"]["items"]:
+    img = item["itemV2"]["data"]["albumOfTrack"]["coverArt"]["sources"][2]["url"]
     track_data = item["itemV2"]["data"]
     tracks.append({
         "name": track_data["name"],
-        "playcount": track_data["playcount"]
+        "playcount": track_data["playcount"],
+        "image": img
     })
 
 result = {
