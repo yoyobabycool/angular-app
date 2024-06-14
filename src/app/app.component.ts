@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching data:', error);
-      }
+      });
 
   }
   //   poppedPopcorns: any[] = [];
