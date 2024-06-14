@@ -15,7 +15,7 @@ jobs:
         pip install tweepy
     - name: run the bot
       run: |
-        python main.py
+        python getSpotify.py
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "Github Actions"
         git add spotify.json
