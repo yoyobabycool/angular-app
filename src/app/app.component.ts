@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
 	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/hB9pvZC1KHk"
   }
   getDataspot(): void {
-    this.http.get('assets/result.json').subscribe(
+    this.http.get('assets/spotify.json').subscribe(
       (response) => {
         this.data = response;
       },
