@@ -29,3 +29,16 @@
     opacity: 0;
   }
 }
+.spotify{
+	display:flex;
+	padding-bottom:10px;
+}
+.tab{
+	display:grid;
+	align-items: center;
+	padding-left:1%
+}
+.count{
+	text-align:center;
+	font-size:60px;
+}
