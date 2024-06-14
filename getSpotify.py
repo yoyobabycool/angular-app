@@ -23,4 +23,4 @@ result = {
 
 print(json.dumps(result, indent=4))
 with open('spotify.json', 'w') as f:
-    f.write(json.dumps(result, indent=4)
+    f.write(json.dumps(result, indent=4))
