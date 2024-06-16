@@ -10,9 +10,9 @@
 			</tr>
 	</table>
 </div>
-<div *ngIf="data">
+<div *ngIf="data" style="display:flex">
 	<div class="spotify" *ngFor="let track of data.tracks">
-	<img height="150px" width="150px" [src] ="track.image">
+	<img height="90px" width="90px" [src] ="track.image">
 	<div class="tab">
 	<!--	<div style="font-size:25px;padding-left:10px">{{track.name}}</div> -->
 		<div class="count">{{track.playcount | number}}</div>
