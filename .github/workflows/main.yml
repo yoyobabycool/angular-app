@@ -18,7 +18,6 @@ jobs:
         python getSpotify.py
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "Github Actions"
-        git checkout gh-pages
         git add assets/spotify.json
         git commit -m "Update spotify "
-        git push
+        git push origin master
