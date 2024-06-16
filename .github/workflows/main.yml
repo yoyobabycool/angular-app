@@ -20,4 +20,4 @@ jobs:
         git config --global user.name "Github Actions"
         git add src/assets/spotify.json
         git commit -m "Update spotify "
-        git push origin master
+        git push origin gh-pages
