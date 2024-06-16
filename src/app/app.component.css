@@ -35,10 +35,10 @@
 }
 .tab{
 	display:grid;
-	align-items: center;
+/* 	align-items: center; */
 	padding-left:1%
 }
 .count{
 	text-align:center;
-	font-size:60px;
+	font-size:30px;
 }
