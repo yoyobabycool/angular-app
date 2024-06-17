@@ -24,5 +24,5 @@ result = {
 }
 
 print(json.dumps(result, indent=4))
-with open('src/assets/spotify.json', 'w') as f:
+with open('assets/spotify.json', 'w') as f:
     f.write(json.dumps(result, indent=4))
