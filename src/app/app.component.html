@@ -10,15 +10,18 @@
 			</tr>
 	</table>
 </div>
-<div *ngIf="data" style="display:flex">
-	<div class="spotify" *ngFor="let track of data.tracks">
-	<img height="90px" width="90px" [src] ="track.image">
-	<div class="tab">
-	<!--	<div style="font-size:25px;padding-left:10px">{{track.name}}</div> -->
-		<div class="count">{{track.playcount | number}}</div>
-	</div>
-	</div>
-</div>
+	<table *ngIf="spotifyData">
+		<tr>
+			<th>Album</th>
+			<th>Spotify</th>
+			<th>Youtube Music</th>
+		</tr>
+		<tr *ngFor="let track of spotifyData.tracks">
+			<td><img height="100px" width="100px" [src] ="track.image"></td>
+			<td style="width:120px">{{track.spotifyCount | number}}</td>
+			<td>{{track.ytmusicCount}}</td>
+		</tr>
+	</table>
 <!-- <iframe height="80px" width="300px" frameborder="0" src="https://open.spotify.com/embed/track/6b2WJDzGt5X8dYfpkWtvXW?utm_source=generator"></iframe>
 
 <iframe height="80px" width="300px" frameborder="0" src="https://www.youtube.com/embed/rc61YHl1PFY"></iframe>
