@@ -3,8 +3,8 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - master
-      # - newbranch
+      # - master
+      - newbranch
 
 jobs:
   build-and-deploy:
