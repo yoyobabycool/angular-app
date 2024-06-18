@@ -17,7 +17,7 @@
 			<th>Spotify</th>
 			<th>Youtube Music</th>
 		</tr>
-		<tr *ngFor="let track of spotifyData.tracks">
+		<tr *ngFor="let track of data.tracks">
 			<td><img height="100px" width="100px" [src] ="track.image"></td>
 			<td style="width:120px">{{track.spotifyCount | number}}</td>
 			<td>{{track.ytmusicCount}}</td>
