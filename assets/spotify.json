@@ -1,33 +1,39 @@
 {
     "tracks": [
         {
-            "name": "Fear Song (From \"Devara Part 1\") [Telugu]",
-            "playcount": "5002019",
+            "language": "Telugu",
+            "spotifyCount": "5167857",
+            "ytmusicCount": "48M",
             "image": "https://i.scdn.co/image/ab67616d0000b2738591a24a47e09545b988f9b2"
         },
         {
-            "name": "Fear Song (From \"Devara Part 1\") [Tamil]",
-            "playcount": "1219509",
+            "language": "Tamil",
+            "spotifyCount": "1272856",
+            "ytmusicCount": "6.9M",
             "image": "https://i.scdn.co/image/ab67616d0000b273ec252c08ac2d02e5d96efb7f"
         },
         {
-            "name": "Fear Song (From \"Devara Part 1\") [Kannada]",
-            "playcount": "53896",
+            "language": "Kannada",
+            "spotifyCount": "54581",
+            "ytmusicCount": "3.5M",
             "image": "https://i.scdn.co/image/ab67616d0000b273c915b17572b14ed3473e71bb"
         },
         {
-            "name": "Fear Song (From \"Devara Part 1\") [Malayalam]",
-            "playcount": "13848",
+            "language": "Malayalam",
+            "spotifyCount": "14067",
+            "ytmusicCount": "2.1M",
             "image": "https://i.scdn.co/image/ab67616d0000b273124f51c26fdc12def70fecf7"
         },
         {
-            "name": "Fear Song (From \"Devara Part 1\") [Hindi]",
-            "playcount": "205567",
+            "language": "Hindi",
+            "spotifyCount": "208234",
+            "ytmusicCount": "23M",
             "image": "https://i.scdn.co/image/ab67616d0000b2733d32cb101f094f0eda57c887"
         },
         {
-            "name": "All Hail The Tiger (From \"Devara Part 1\")",
-            "playcount": "2159742",
+            "language": "All Hail Tiger",
+            "spotifyCount": "2170273",
+            "ytmusicCount": "927K",
             "image": "https://i.scdn.co/image/ab67616d0000b273f4920fea00e57158f540baaa"
         }
     ]
