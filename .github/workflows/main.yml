@@ -2,8 +2,8 @@ name: Run bot
 on:
   schedule:
     - cron: '*/60 * * * *'
-  push:
-    branches: [ master ]
+  # push:
+    # branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
