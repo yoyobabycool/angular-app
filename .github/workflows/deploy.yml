@@ -7,7 +7,6 @@ on:
       # - newbranch
     paths: 
       - 'src/assets/spotify.json'
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
