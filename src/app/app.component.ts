@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
 	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/XUO4fCXG7tE",
 	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/hB9pvZC1KHk"
   }
-  SesondSong : { [key: string]: string } = {
+  SecondSong : { [key: string]: string } = {
 	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/5vsOv_bcnhs",
 	"Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/IARc_LBgQZE",
 	"Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/_OS2FSIpQ2s",
