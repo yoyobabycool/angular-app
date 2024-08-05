@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
       furyUrls1: { [key: string]: SafeResourceUrl } = {};
   glimpseUrls1: { [key: string]: SafeResourceUrl } = {};
   fearSongUrls1: { [key: string]: SafeResourceUrl } = {};
-  secondSongUrls1: : { [key: string]: SafeResourceUrl } = {};
+  secondSongUrls1: { [key: string]: SafeResourceUrl } = {};
   langs: any[] = ["Telugu","Hindi","Tamil","Kannada","Malayalam"]
     Fury : { [key: string]: string } = {
 	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/cW2RWZCUot4",
