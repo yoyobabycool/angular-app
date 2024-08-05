@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
       this.furyUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Fury[lang]);
 	  this.glimpseUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Glimpse[lang]);
 	  this.fearSongUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.FearSong[lang]);
+    this.secondSongUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.SecondSong[lang]);
     }
   }
     ngOnInit(): void {
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
       furyUrls1: { [key: string]: SafeResourceUrl } = {};
   glimpseUrls1: { [key: string]: SafeResourceUrl } = {};
   fearSongUrls1: { [key: string]: SafeResourceUrl } = {};
+  secondSongUrls1: : { [key: string]: SafeResourceUrl } = {};
   langs: any[] = ["Telugu","Hindi","Tamil","Kannada","Malayalam"]
     Fury : { [key: string]: string } = {
 	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/cW2RWZCUot4",
@@ -44,6 +46,13 @@ export class AppComponent implements OnInit {
 	"Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/D6MOuX980gc",
 	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/XUO4fCXG7tE",
 	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/hB9pvZC1KHk"
+  }
+  SesondSong : { [key: string]: string } = {
+	"Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/5vsOv_bcnhs",
+	"Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/IARc_LBgQZE",
+	"Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/_OS2FSIpQ2s",
+	"Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/ZPg_uf-40AA",
+	"Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/yjWgj5Z6lR0"
   }
   getDataspot(): void {
     this.http.get('assets/spotify.json').subscribe(
