@@ -2,37 +2,37 @@
     "tracks": [
         {
             "language": "Telugu",
-            "spotifyCount": "13328216",
-            "ytmusicCount": "67M",
+            "spotifyCount": "13477342",
+            "ytmusicCount": "68M",
             "image": "https://i.scdn.co/image/ab67616d0000b2738591a24a47e09545b988f9b2"
         },
         {
             "language": "Tamil",
-            "spotifyCount": "6498402",
+            "spotifyCount": "6604857",
             "ytmusicCount": "10M",
             "image": "https://i.scdn.co/image/ab67616d0000b273ec252c08ac2d02e5d96efb7f"
         },
         {
             "language": "Kannada",
-            "spotifyCount": "78293",
+            "spotifyCount": "78657",
             "ytmusicCount": "3.7M",
             "image": "https://i.scdn.co/image/ab67616d0000b273c915b17572b14ed3473e71bb"
         },
         {
             "language": "Malayalam",
-            "spotifyCount": "6498402",
+            "spotifyCount": "6604857",
             "ytmusicCount": "2.2M",
             "image": "https://i.scdn.co/image/ab67616d0000b273124f51c26fdc12def70fecf7"
         },
         {
             "language": "Hindi",
-            "spotifyCount": "344111",
+            "spotifyCount": "346639",
             "ytmusicCount": "24M",
             "image": "https://i.scdn.co/image/ab67616d0000b2733d32cb101f094f0eda57c887"
         },
         {
             "language": "All Hail Tiger",
-            "spotifyCount": "2826452",
+            "spotifyCount": "2842658",
             "ytmusicCount": "1M",
             "image": "https://i.scdn.co/image/ab67616d0000b273f4920fea00e57158f540baaa"
         }
