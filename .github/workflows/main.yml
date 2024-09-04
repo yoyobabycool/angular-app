@@ -1,7 +1,5 @@
 name: Run bot
 on:
-  schedule:
-    - cron: '*/60 * * * *'
   push:
       branches: [ master ]
 jobs:
