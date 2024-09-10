@@ -1,6 +1,9 @@
 import { Component, OnInit  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';   
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { VideoDataService } from './video-data.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +13,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   data: any;
   token:any;
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+  videos: any[] = [];
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private videoDataService: VideoDataService) {
       for (let lang in this.Fury) {
       this.furyUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Fury[lang]);
 	  this.glimpseUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Glimpse[lang]);
@@ -20,7 +24,22 @@ export class AppComponent implements OnInit {
     }
   }
     ngOnInit(): void {
-    this.getDataspot();
+      interval(30000).pipe(
+        switchMap(() => this.videoDataService.getVideoData())
+      ).subscribe(data => {
+        this.videos = data;
+      console.log(this.videos)
+      });
+         this.videoDataService.getVideoData().subscribe(
+        (data) => {
+          this.videos = data;
+      console.log(this.videos)
+        },
+        (error) => {
+          console.error('Error fetching video data', error);
+        }
+      );
+    // this.getDataspot();
   }
       furyUrls1: { [key: string]: SafeResourceUrl } = {};
   glimpseUrls1: { [key: string]: SafeResourceUrl } = {};

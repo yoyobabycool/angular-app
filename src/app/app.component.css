@@ -47,3 +47,8 @@ table, th, td {
   padding: 1px 1px 1px 1px;
   text-align: center;
 }
+#odometer {
+  display: block;
+  margin: 0;
+  padding: 0 20px;
+}

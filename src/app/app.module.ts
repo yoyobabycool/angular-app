@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { VideoDataService } from './video-data.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule 
   ],
-  providers: [],
+  providers: [VideoDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
