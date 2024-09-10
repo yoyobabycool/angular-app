@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VideoDataService {
-  private apiUrl = ' https://happy-carpets-live.loca.lt/getstats';  // API URL
+  private apiUrl = 'https://cold-vans-type.loca.lt/getstats';  // API URL
 
   constructor(private http: HttpClient) { }
 
