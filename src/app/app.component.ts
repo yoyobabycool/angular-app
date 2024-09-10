@@ -76,11 +76,11 @@ export class AppComponent implements OnInit {
 	// "Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/yjWgj5Z6lR0"
   // }
   davudi: { [key: string]: string } = {
-    "Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/22IEnKGVuUY",
-    "Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/RLc8BsHourA",
-    "Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/TV8OOVDnq8w",
-    "Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/7zp5iBcQA60",
-    "Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/Ow_x-QNSg2U"
+    "Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/5cx7rvMvAWo ",
+    "Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/NcCYq3bvlJM",
+    "Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/byEjl2kJGK0",
+    "Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/FUGcRzAFAD8",
+    "Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/f3Tz-oGl52o"
     }
   getDataspot(): void {
     this.http.get('assets/spotify.json').subscribe(
