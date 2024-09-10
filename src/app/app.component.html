@@ -2,10 +2,10 @@
 <iframe height="80px" width="300px" frameborder="0" src="https://livecounts.io/embed/twitter-live-follower-counter/tarak9999"></iframe>
 <div style="overflow-x:auto;">
 	<table>
-			<tr *ngFor="let lang of langs">
-				<td>{{lang}}</td>				
-				 <td><iframe height="80px" [src]="davudiUrls1[lang]" ></iframe></td>
-				 <td>  <p class="odometer" id="odometer">Likes: {{ video.likes }}</p></td>
+			<tr *ngFor="let video of videos">
+				<td>{{video.language}}</td>				
+				 <td><iframe height="80px" [src]="davudiUrls1[video.language]" ></iframe></td>
+				 <td>  <p class="odometer" id="odometer">{{ video.likes }}</p></td>
 				<!-- <td><iframe height="80px" [src]="secondSongUrls1[lang]" ></iframe></td>
 				<td><iframe height="80px" [src]="fearSongUrls1[lang]" ></iframe></td>
 				<td><iframe height="80px" [src]="glimpseUrls1[lang]" ></iframe></td>
