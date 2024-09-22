@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   // data: any;
   // token:any;
   // videos: any[] = [];
-  // constructor(private http: HttpClient, private sanitizer: DomSanitizer, private videoDataService: VideoDataService) {
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private videoDataService: VideoDataService) {
       // for (let lang in this.davudi) {
     //   this.furyUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Fury[lang]);
 	  // this.glimpseUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Glimpse[lang]);
