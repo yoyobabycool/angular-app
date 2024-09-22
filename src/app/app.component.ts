@@ -4,13 +4,16 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { VideoDataService } from './video-data.service';
-interface TheatreData {
-  city: string;
+interface Theatre {
   theatre: string;
   allShows: string[];
   availableShows: string[];
-  fillingShows: string[]
+  fillingShow: string[];
   soldOutShows: string[];
+}
+interface CityData {
+  city: string;
+  theatres: Theatre[];
 }
 @Component({
   selector: 'app-root',
@@ -18,6 +21,10 @@ interface TheatreData {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  cities: string[] = [];
+  selectedCity: string = '';
+  cityData: CityData[] = [];
+  filteredTheatres: Theatre[] = [];
   // data: any;
   // token:any;
   // videos: any[] = [];
@@ -29,12 +36,7 @@ export class AppComponent implements OnInit {
     // this.secondSongUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.SecondSong[lang]);
     // this.davudiUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.davudi[lang]);
     // }
-  // }
-  cities = ['Bengaluru', 'Mumbai', 'Chennai'];  // Add more cities as needed
-  selectedCity: string = '';
-  theatreData: TheatreData[] = [];
-  filteredData: TheatreData[] = [];
-  constructor(private http: HttpClient, private videoDataService: VideoDataService) { }
+  // }  constructor(private http: HttpClient, private videoDataService: VideoDataService) { }
   ngOnInit(): void {
     this.fetchTheatreData();
   }
@@ -49,11 +51,18 @@ export class AppComponent implements OnInit {
       }
     );
   }
+  extractCities(data: CityData[]): void {
+    this.cities = data.map(city => city.city);
+  }
+
   onCitySelect(event: Event): void {
     const selectedCity = (event.target as HTMLSelectElement).value;
     this.selectedCity = selectedCity;
-    this.filteredData = this.theatreData.filter(theatre => theatre.city === selectedCity);
+
+    const cityInfo = this.cityData.find(city => city.city === selectedCity);
+    this.filteredTheatres = cityInfo ? cityInfo.theatres : [];
   }
+
 
     // ngOnInit(): void {
 

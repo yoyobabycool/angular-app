@@ -1,11 +1,11 @@
 <div>
 	<label for="city-select">Select City:</label>
 	<select id="city-select" (change)="onCitySelect($event)">
-		<option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-	  </select>
+	  <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+	</select>
   </div>
   
-  <div *ngIf="filteredData.length > 0">
+  <div *ngIf="filteredTheatres.length > 0">
 	<h2>Showtimes for {{ selectedCity }}</h2>
   
 	<table>
@@ -13,21 +13,15 @@
 		<tr>
 		  <th>Theatre</th>
 		  <th>Available Shows</th>
-		  <th>Filling Shows</th>
 		  <th>Sold Out Shows</th>
 		</tr>
 	  </thead>
 	  <tbody>
-		<tr *ngFor="let theatre of filteredData">
+		<tr *ngFor="let theatre of filteredTheatres">
 		  <td>{{ theatre.theatre }}</td>
 		  <td>
 			<ul>
 			  <li *ngFor="let show of theatre.availableShows">{{ show }}</li>
-			</ul>
-		  </td>
-		  <td>
-			<ul>
-			  <li *ngFor="let show of theatre.fillingShows">{{ show }}</li>
 			</ul>
 		  </td>
 		  <td>
@@ -40,10 +34,9 @@
 	</table>
   </div>
   
-  <div *ngIf="filteredData.length === 0 && selectedCity">
+  <div *ngIf="filteredTheatres.length === 0 && selectedCity">
 	<p>No showtimes available for {{ selectedCity }}.</p>
   </div>
-  
 
 <!-- <h1 *ngIf="videos[0]?.timestamp">updated at {{videos[0].timestamp}}</h1>
 <iframe height="80px" width="300px" frameborder="0" src="https://livecounts.io/embed/twitter-live-follower-counter/tarak9999"></iframe>
