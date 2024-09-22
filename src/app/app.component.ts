@@ -8,7 +8,7 @@ interface Theatre {
   theatre: string;
   allShows: string[];
   availableShows: string[];
-  fillingShow: string[];
+  fillingShows: string[];
   soldOutShows: string[];
 }
 interface CityData {
