@@ -45,7 +45,8 @@ export class AppComponent implements OnInit {
   fetchTheatreData(): void {
     this.videoDataService.getBmsDetails().subscribe(
       (data) => {
-        this.theatreData = data;
+        this.cityData = data;
+        this.extractCities(data);
       },
       (error) => {
         console.error('Error fetching theatre data', error);
