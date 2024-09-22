@@ -1,8 +1,8 @@
 <div>
 	<label for="city-select">Select City:</label>
-	<select id="city-select" (change)="onCitySelect($event.target.value)">
-	  <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-	</select>
+	<select id="city-select" (change)="onCitySelect($event)">
+		<option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+	  </select>
   </div>
   
   <div *ngIf="filteredData.length > 0">
