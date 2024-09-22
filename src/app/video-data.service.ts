@@ -23,4 +23,15 @@ export class VideoDataService {
       })
     );
   }
+  getBmsDetails(): Observable<any> {
+    const headers = new HttpHeaders({
+    'Bypass-Tunnel-Reminder': 'true'
+  });
+  return this.http.get<any>('https://orange-pens-say.loca.lt', { headers }).pipe(
+    map(response => {
+      // You can transform or process data here if needed
+      return response
+    })
+  );
+}
 }

@@ -1,22 +1,63 @@
-<h1 *ngIf="videos[0]?.timestamp">updated at {{videos[0].timestamp}}</h1>
+<div>
+	<label for="city-select">Select City:</label>
+	<select id="city-select" (change)="onCitySelect($event.target.value)">
+	  <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+	</select>
+  </div>
+  
+  <div *ngIf="filteredData.length > 0">
+	<h2>Showtimes for {{ selectedCity }}</h2>
+  
+	<table>
+	  <thead>
+		<tr>
+		  <th>Theatre</th>
+		  <th>Available Shows</th>
+		  <th>Sold Out Shows</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr *ngFor="let theatre of filteredData">
+		  <td>{{ theatre.theatre }}</td>
+		  <td>
+			<ul>
+			  <li *ngFor="let show of theatre.availableShows">{{ show }}</li>
+			</ul>
+		  </td>
+		  <td>
+			<ul>
+			  <li *ngFor="let show of theatre.soldOutShows">{{ show }}</li>
+			</ul>
+		  </td>
+		</tr>
+	  </tbody>
+	</table>
+  </div>
+  
+  <div *ngIf="filteredData.length === 0 && selectedCity">
+	<p>No showtimes available for {{ selectedCity }}.</p>
+  </div>
+  
+
+<!-- <h1 *ngIf="videos[0]?.timestamp">updated at {{videos[0].timestamp}}</h1>
 <iframe height="80px" width="300px" frameborder="0" src="https://livecounts.io/embed/twitter-live-follower-counter/tarak9999"></iframe>
 <div style="overflow-x:auto;display: flex;">
 	<table>
 			<tr *ngFor="let lang of langs">
 				<td>{{lang}}</td>				
-				 <td><iframe height="80px" [src]="davudiUrls1[lang]" ></iframe></td>
+				 <td><iframe height="80px" [src]="davudiUrls1[lang]" ></iframe></td> -->
 				<!-- <td><iframe height="80px" [src]="secondSongUrls1[lang]" ></iframe></td>
 				<td><iframe height="80px" [src]="fearSongUrls1[lang]" ></iframe></td>
 				<td><iframe height="80px" [src]="glimpseUrls1[lang]" ></iframe></td>
 				<td><iframe height="80px" [src]="furyUrls1[lang]" ></iframe></td> -->
-			</tr>
+			<!-- </tr>
 	</table>
 	<table>
 		<tr *ngFor="let video of videos">
 			<td>  <p class="odometer" id="odometer">{{ video.likes }}</p></td>
 		</tr>
 	</table>
-</div>
+</div> -->
 
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/22IEnKGVuUY?autoplay=1&mute=1" allow="autoplay"></iframe> -->
 <!--

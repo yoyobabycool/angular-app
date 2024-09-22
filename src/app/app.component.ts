@@ -4,49 +4,76 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { VideoDataService } from './video-data.service';
-
+interface TheatreData {
+  city: string;
+  theatre: string;
+  allShows: string[];
+  availableShows: string[];
+  soldOutShows: string[];
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  data: any;
-  token:any;
-  videos: any[] = [];
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private videoDataService: VideoDataService) {
-      for (let lang in this.davudi) {
+  // data: any;
+  // token:any;
+  // videos: any[] = [];
+  // constructor(private http: HttpClient, private sanitizer: DomSanitizer, private videoDataService: VideoDataService) {
+      // for (let lang in this.davudi) {
     //   this.furyUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Fury[lang]);
 	  // this.glimpseUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.Glimpse[lang]);
 	  // this.fearSongUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.FearSong[lang]);
     // this.secondSongUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.SecondSong[lang]);
-    this.davudiUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.davudi[lang]);
-    }
+    // this.davudiUrls1[lang] = this.sanitizer.bypassSecurityTrustResourceUrl(this.davudi[lang]);
+    // }
+  // }
+  cities = ['Bengaluru', 'Mumbai', 'Chennai'];  // Add more cities as needed
+  selectedCity: string = '';
+  theatreData: TheatreData[] = [];
+  filteredData: TheatreData[] = [];
+  constructor(private http: HttpClient, private videoDataService: VideoDataService) { }
+  ngOnInit(): void {
+    this.fetchTheatreData();
   }
-    ngOnInit(): void {
-      interval(30000).pipe(
-        switchMap(() => this.videoDataService.getVideoData())
-      ).subscribe(data => {
-        this.videos = data;
-      console.log(this.videos)
-      });
-         this.videoDataService.getVideoData().subscribe(
-        (data) => {
-          this.videos = data;
-      console.log(this.videos)
-        },
-        (error) => {
-          console.error('Error fetching video data', error);
-        }
-      );
+
+  fetchTheatreData(): void {
+    this.videoDataService.getBmsDetails().subscribe(
+      (data) => {
+        this.theatreData = data;
+      },
+      (error) => {
+        console.error('Error fetching theatre data', error);
+      }
+    );
+  }
+
+    // ngOnInit(): void {
+
+      // interval(30000).pipe(
+      //   switchMap(() => this.videoDataService.getVideoData())
+      // ).subscribe(data => {
+      //   this.videos = data;
+      // console.log(this.videos)
+      // });
+      //    this.videoDataService.getVideoData().subscribe(
+      //   (data) => {
+      //     this.videos = data;
+      // console.log(this.videos)
+      //   },
+      //   (error) => {
+      //     console.error('Error fetching video data', error);
+      //   }
+      // );
     // this.getDataspot();
-  }
+  // }
   //     furyUrls1: { [key: string]: SafeResourceUrl } = {};
   // glimpseUrls1: { [key: string]: SafeResourceUrl } = {};
   // fearSongUrls1: { [key: string]: SafeResourceUrl } = {};
   // secondSongUrls1: { [key: string]: SafeResourceUrl } = {};
-  davudiUrls1: { [key: string]: SafeResourceUrl } = {};
-  langs: any[] = ["Telugu","Hindi","Tamil","Kannada","Malayalam"]
+  // davudiUrls1: { [key: string]: SafeResourceUrl } = {};
+  // langs: any[] = ["Telugu","Hindi","Tamil","Kannada","Malayalam"]
   //   Fury : { [key: string]: string } = {
 	// "Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/cW2RWZCUot4",
 	// "Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/S6Ll0_dqfkY",
@@ -75,23 +102,23 @@ export class AppComponent implements OnInit {
 	// "Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/ZPg_uf-40AA",
 	// "Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/yjWgj5Z6lR0"
   // }
-  davudi: { [key: string]: string } = {
-    "Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/5cx7rvMvAWo ",
-    "Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/NcCYq3bvlJM",
-    "Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/byEjl2kJGK0",
-    "Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/FUGcRzAFAD8",
-    "Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/f3Tz-oGl52o"
-    }
-  getDataspot(): void {
-    this.http.get('assets/spotify.json').subscribe(
-      (response) => {
-        this.data = response;
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      });
+  // davudi: { [key: string]: string } = {
+  //   "Telugu" : "https://livecounts.io/embed/youtube-live-view-counter/5cx7rvMvAWo ",
+  //   "Hindi" : "https://livecounts.io/embed/youtube-live-view-counter/NcCYq3bvlJM",
+  //   "Tamil" : "https://livecounts.io/embed/youtube-live-view-counter/byEjl2kJGK0",
+  //   "Kannada" : "https://livecounts.io/embed/youtube-live-view-counter/FUGcRzAFAD8",
+  //   "Malayalam" : "https://livecounts.io/embed/youtube-live-view-counter/f3Tz-oGl52o"
+  //   }
+  // getDataspot(): void {
+  //   this.http.get('assets/spotify.json').subscribe(
+  //     (response) => {
+  //       this.data = response;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching data:', error);
+  //     });
 
-  }
+  // }
   //   poppedPopcorns: any[] = [];
   // addPopcorn(event: MouseEvent) {
   //     const popcorn = {
