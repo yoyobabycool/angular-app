@@ -9,6 +9,7 @@ interface TheatreData {
   theatre: string;
   allShows: string[];
   availableShows: string[];
+  fillingShows: string[]
   soldOutShows: string[];
 }
 @Component({
