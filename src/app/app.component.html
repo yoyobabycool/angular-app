@@ -21,7 +21,7 @@
 	  <tbody>
 		<tr *ngFor="let theatre of filteredTheatres">
 		  <td>{{ theatre.theatre }}</td>
-		  <td></td>
+		  <td>
 			<ul>
 			  <li *ngFor="let show of theatre.allShows">{{ show }}</li>
 			</ul>
