@@ -27,7 +27,7 @@ export class VideoDataService {
     const headers = new HttpHeaders({
     'Bypass-Tunnel-Reminder': 'true'
   });
-  return this.http.get<any>('https://orange-pens-say.loca.lt', { headers }).pipe(
+  return this.http.get<any>('https://fast-ghosts-worry.loca.lt', { headers }).pipe(
     map(response => {
       // You can transform or process data here if needed
       return response

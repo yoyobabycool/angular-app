@@ -13,6 +13,7 @@
 		<tr>
 		  <th>Theatre</th>
 		  <th>Available Shows</th>
+		  <th>Filling Shows</th>
 		  <th>Sold Out Shows</th>
 		</tr>
 	  </thead>
@@ -22,6 +23,11 @@
 		  <td>
 			<ul>
 			  <li *ngFor="let show of theatre.availableShows">{{ show }}</li>
+			</ul>
+		  </td>
+		  <td>
+			<ul>
+			  <li *ngFor="let show of theatre.fillingShows">{{ show }}</li>
 			</ul>
 		  </td>
 		  <td>
