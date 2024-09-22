@@ -48,6 +48,10 @@ export class AppComponent implements OnInit {
       }
     );
   }
+  onCitySelect(city: string): void {
+    this.selectedCity = city;
+    this.filteredData = this.theatreData.filter(theatre => theatre.city === city);
+  }
 
     // ngOnInit(): void {
 
