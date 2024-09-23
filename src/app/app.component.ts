@@ -7,9 +7,6 @@ import { VideoDataService } from './video-data.service';
 interface Theatre {
   theatre: string;
   allShows: string[];
-  availableShows: string[];
-  fillingShows: string[];
-  soldOutShows: string[];
 }
 interface CityData {
   city: string;
@@ -40,6 +37,7 @@ export class AppComponent implements OnInit {
    constructor(private http: HttpClient, private videoDataService: VideoDataService) { }
   ngOnInit(): void {
     this.fetchTheatreData();
+    this.selectedCity = "Hyderabad-Telugu"
   }
 
   fetchTheatreData(): void {
